@@ -70,7 +70,7 @@
     },
 
     methods: {
-      dateFormated(badDate: string): string {
+      dateFormated(badDate: string): string { //test
         var date = new Date(badDate)
         var options = { weekday: "long", day: "numeric", month: "numeric" }
         const DateFr = new Intl.DateTimeFormat("fr-FR", options).format(date)
