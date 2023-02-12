@@ -80,6 +80,9 @@ fetchConfig("config.json").then((config: any) => {
     }
   }
 
+  function calculateDaysBetweenDates(begin, end) {
+    
+
   const root = document.querySelector(":root") as HTMLElement
 
   if (root !== null && typeof config.theme === "object") {
