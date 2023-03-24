@@ -454,6 +454,15 @@ For instance:
 bundle exec fastlane android build tag:1.0.0-rc.9
 ```
 
+##### build changelog for current version
+
+```
+bundle exec fastlane changelog
+```
+
+Will create a file `release/<TAG>/CHANGELOG` with the changes since
+last version.
+
 ##### create screenshots for release on app stores
 
 These screenshots will showcase the most important part of the
@@ -622,11 +631,21 @@ For instance:
 bundle exec fastlane android build app:roue,pive
 ```
 
+### Publishing Release
+
+This is about the process of send the build artifacts to public
+platform for distribution. The current setup allow to publish to
+github page only.
+
 #### Publish to github
+
+In this section, it'll be about publishing on the github release part
+the build assets.
 
 ```
 bundle exec fastlane web publish_github
 bundle exec fastlane android publish_github
+bundle exec fastlane ios publish_github
 ```
 
 Will build packages in `release/$TAG` and create/update github release
@@ -652,3 +671,7 @@ bundle exec fastlane android publish_github \
 `1.0.0-rc.8` with the added revision 1 in the android version code,
 only for application "monujo" and create/update the github release
 `1.0.0-rc.8` of the github repository "vaab/monujo".
+
+Note that you'll need to add `changelog:true` to force creation of
+changelog and use it to create the description of the release with the
+changelog.
