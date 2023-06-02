@@ -451,6 +451,57 @@ bundle exec fastlane ios build      ## Build ios IPA
 
 Will produce build outputs in `release/$TAG` directory.
 
+
+##### create and publish all assets
+
+bundle exec fastlane {android,ios} publish_store
+
+- publish changelog, screenshots and application on platform's store
+  (Google play store for android, and Apple Store for ios)
+- the ios platform will require a Mac host.
+
+bundle exec fastlane {web,android} publish_github
+
+- publish changelog and application files on github release pages
+
+This is only supported on the Apple Store for now and requires a
+Apple host to support the final publication on Apple Store.
+
+All arguments of previous section applies. With the addition of:
+
+- the device name to target for the screenshots in:
+  - command line argument `device`, comma separated if needed of one or more
+    of the following `IPHONE_55`, `IPHONE_65`, `IPHONE_67`, `IPAD_PRO_129`,
+    `IPAD_PRO_3GEN_129`, ... or
+  - environment variable `SCREENSHOT_DEVICE`, comma separated if needed or
+  - configuration file `.screenshot.json`, field `resolutions` as an array.
+  - if not specified, the minimum required list of device needed to
+    make a valid release for the store will be chosen. (which is
+    currenty: `IPHONE_55`, `IPHONE_65`, `IPHONE_67`, `IPAD_PRO_129`,
+    `IPAD_PRO_3GEN_129`)
+
+For instance:
+
+```
+bundle exec fastlane ios publish_screenshots \
+    tag:1.0.0-rc.11 app:agnel,pive \
+    host:demo.lokavaluto.fr \
+    db:odoo \
+    login:demo@example.com \
+    password:demo \
+    language:fr-FR,en-US \
+    device:IPHONE_55,IPAD_PRO_129
+
+```
+
+Or if you have correctly setup files, and want to target all apps in
+all languages on all required devices for the current tag:
+
+```
+bundle exec fastlane ios publish_screenshots
+```
+
+
 ##### Specifying which version to build
 
 If the checkout of your current code is on a commit that has a TAG of the
