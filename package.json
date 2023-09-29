@@ -1,6 +1,6 @@
 {
   "name": "Monujo",
-  "version": "%%version%%",
+  "version": "1.0.0-rc.12.202307261821",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -12,6 +12,9 @@
   },
   "dependencies": {
     "@0k/types-request": "^1.0.1",
+    "@capacitor-community/fcm": "^3.0.2",
+    "@capacitor/local-notifications": "^4.1.5",
+    "@capacitor/push-notifications": "^4.1.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",

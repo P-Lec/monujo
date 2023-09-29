@@ -2,5 +2,9 @@
 	"appId": "com.lokavaluto.monujo",
 	"appName": "Monujo",
 	"webDir": "dist",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"server": {
+		"url": "http://192.168.1.101:8080/",
+		"cleartext": true
+	}
 }

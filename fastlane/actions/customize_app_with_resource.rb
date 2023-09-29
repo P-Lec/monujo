@@ -42,6 +42,8 @@ module Fastlane
 
         Zip::File.open_buffer(response.body) do |zip_file|
           dir = false
+          android_googleservice_exist = false
+          ios_googleservice_exist = false
           zip_file.each do |f|
             ## Lots of useless mac junk files that should not be sent
             ## in final package
@@ -59,7 +61,7 @@ module Fastlane
             if shortened_path === ''
               next
             end
-            if ! ["public", "resources"].include? path[0]
+            if ! ["public", "resources", "android", "ios"].include? path[0]
               UI.message "  Ignored:         #{shortened_path} ('#{path[0]}' subdir is not whitelisted)."
               next
             end
@@ -74,6 +76,15 @@ module Fastlane
               UI.success "  Extract: NEW     #{shortened_path}"
             end
             zip_file.extract(f, fpath) { true }
+            if fpath.include? "android/app/google-services.json"
+              android_googleservice_exist = true
+            elsif fpath.include? "ios/App/App/GoogleService-Info.plist"
+              ios_googleservice_exist = true
+            end
+          end
+          if !(android_googleservice_exist && ios_googleservice_exist)
+            UI.error "Firebase google service file for android or ios not found"
+            exit(0)
           end
         end
 

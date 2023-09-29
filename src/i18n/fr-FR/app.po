@@ -185,7 +185,7 @@ msgstr "Validation des demandes de crédit"
 msgid "Approve"
 msgstr "Valider"
 
-#: src/views/Login.vue:210
+#: src/views/Login.vue:213
 msgid "Ask me later"
 msgstr "Plus tard"
 
@@ -197,7 +197,7 @@ msgstr "Authentification"
 msgid "Biometric login successfully disabled"
 msgstr "Identification biométrique désactivée"
 
-#: src/views/Login.vue:242
+#: src/views/Login.vue:245
 msgid "Biometric login successfully set up"
 msgstr "Identification biométrique mise en place"
 
@@ -226,7 +226,7 @@ msgstr "valider"
 msgid "Confirm password"
 msgstr "Confirmez votre mot de passe"
 
-#: src/views/Login.vue:165
+#: src/views/Login.vue:168
 msgid "Connection successful"
 msgstr "Connection réussie"
 
@@ -296,7 +296,7 @@ msgstr "Courriel"
 msgid "Email sent"
 msgstr "Courriel envoyé"
 
-#: src/views/Login.vue:203
+#: src/views/Login.vue:206
 msgid "Enable biometric login"
 msgstr "Activer le login biométrique"
 
@@ -347,7 +347,7 @@ msgstr "Les codes PINs entrés ne sont pas identiques"
 msgid "Help"
 msgstr "Aide"
 
-#: src/views/Login.vue:177
+#: src/views/Login.vue:180
 msgid "Invalid credentials"
 msgstr "Identifiant ou mot de passe incorrect"
 
@@ -355,7 +355,7 @@ msgstr "Identifiant ou mot de passe incorrect"
 msgid "Invalid email."
 msgstr "E-mail invalide."
 
-#: src/main.ts:223
+#: src/main.ts:227
 msgid "Language settings"
 msgstr "Préférences de langue"
 
@@ -367,7 +367,7 @@ msgstr "Nom"
 msgid "Later"
 msgstr "Plus tard"
 
-#: src/main.ts:105
+#: src/main.ts:109
 msgid "Log in"
 msgstr "Se connecter"
 
@@ -375,11 +375,11 @@ msgstr "Se connecter"
 msgid "Login"
 msgstr "Connection"
 
-#: src/main.ts:104
+#: src/main.ts:108
 msgid "Login into Monujo"
 msgstr "S'authentifier pour accéder à Monujo"
 
-#: src/main.ts:133
+#: src/main.ts:137
 msgid "Main account"
 msgstr "Compte principal"
 
@@ -399,7 +399,7 @@ msgstr "Montant minimum à créditer : "
 msgid "month"
 msgstr "mois"
 
-#: src/main.ts:131
+#: src/main.ts:135
 msgid "Mutual credit"
 msgstr "Crédit mutuel"
 
@@ -412,7 +412,7 @@ msgstr "Nom, adresse email ou téléphone"
 msgid "Next"
 msgstr "Suivant"
 
-#: src/views/Login.vue:209
+#: src/views/Login.vue:212
 msgid "No"
 msgstr "Non"
 
@@ -563,7 +563,7 @@ msgstr ""
 msgid "Please try again or contact your administrator"
 msgstr "Veuillez ré-éssayer ou contacter votre administrateur"
 
-#: src/main.ts:130
+#: src/main.ts:134
 msgid "Pledged account"
 msgstr "Compte nantis"
 
@@ -593,11 +593,11 @@ msgstr "Rafraîchir le solde et les transactions"
 msgid "Request"
 msgstr "Recevoir"
 
-#: src/views/Login.vue:181
+#: src/views/Login.vue:184
 msgid "Request failed to remote server."
 msgstr "La requête a échoué, impossible de joindre le serveur distant."
 
-#: src/views/Login.vue:171
+#: src/views/Login.vue:174
 msgid "Request refused by remote server. Contact your administrator"
 msgstr "Refus du serveur distant, contactez votre administrateur"
 
@@ -613,7 +613,7 @@ msgstr "Ré-initialiser le mot de passe"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/main.ts:194
+#: src/main.ts:198
 msgid "Security settings"
 msgstr "Préférences de sécurité"
 
@@ -831,13 +831,13 @@ msgstr "Transaction refusée en raison de fonds insuffisants"
 msgid "Transactions"
 msgstr "Opérations"
 
-#: src/views/Login.vue:235
+#: src/views/Login.vue:238
 msgid "Unexpected issue occurred while saving your credentials"
 msgstr ""
 "Une erreur inattendue est survenue pendant l'enregistrement de vos "
 "identifiants"
 
-#: src/views/Login.vue:184 src/views/ResetPassword.vue:74
+#: src/views/Login.vue:187 src/views/ResetPassword.vue:74
 #: src/views/Signup.vue:213
 msgid "Unexpected issue when attempting to connect to remote server."
 msgstr ""
@@ -890,7 +890,7 @@ msgstr "Compte à créditer"
 msgid "week"
 msgstr "semaine"
 
-#: src/views/Login.vue:204
+#: src/views/Login.vue:207
 msgid ""
 "Would you like to use your device's biometric (fingerprint, face "
 "recognition, ...) capability to login ?"
@@ -902,7 +902,7 @@ msgstr ""
 msgid "year"
 msgstr "année"
 
-#: src/views/Login.vue:208
+#: src/views/Login.vue:211
 msgid "Yes"
 msgstr "Oui"
 

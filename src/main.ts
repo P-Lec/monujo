@@ -13,6 +13,8 @@ import mkStore from "./store"
 import { lokapiStoreFactory } from "./store/lokapi"
 import { prefsStoreFactory } from "./store/prefs"
 import PasswordUtilsFactory from "./utils/password"
+import { pushNotificationStoreFactory } from "./store/pushNotification"
+
 // Services
 
 import {
@@ -27,6 +29,7 @@ import ExportService from "@/services/ExportService"
 import AuthPrefs from "@/components/AuthPrefs.vue"
 import LangPrefs from "@/components/LangPrefs.vue"
 import BiometryPrefs from "@/components/BiometryPrefs.vue"
+import { LocalNotifications } from "@capacitor/local-notifications"
 
 import Dialog from "@/services/Dialog"
 import Biometry from "@/services/Biometry"
@@ -35,6 +38,8 @@ import { LokAPI } from "./services/lokapiService"
 import mkGettext from "./services/Gettext"
 
 import UseModal from "./services/UseModal"
+import PushNotificationService from "./services/PushNotificationService"
+
 // Components
 
 import AuthPrefDirect from "@/components/AuthPrefDirect.vue"
@@ -256,6 +261,39 @@ fetchConfig("config.json").then(async (config: any) => {
   )
   store.registerModule("prefs", prefsStoreFactory(prefsService))
 
+    const pushNotificationService = new PushNotificationService(
+        async (account: any, token: any) => {
+            if (account.registerForPushNotification) {
+                await account.registerForPushNotification(token)
+            }
+        }
+    )
+  pushNotificationService
+    .onNotificationReceivedDo((notification): Promise<void> => {
+      return new Promise((resolve, reject) => {
+        LocalNotifications.schedule({
+          notifications: [
+            {
+              title: notification.title,
+              body: notification.body,
+              id: Math.floor(Math.random() * 1000000),
+              schedule: { at: new Date(Date.now() + 100) },
+              actionTypeId: "",
+              extra: null,
+            },
+          ],
+        })
+      })
+    })
+    .onRegistrationDo(async (token: string): Promise<void> => {
+        console.log(token)
+    })
+
+  store.registerModule(
+    "pushNotification",
+    pushNotificationStoreFactory(pushNotificationService)
+  )
+
   const app = createApp(App)
   app.config.errorHandler = function (err: any, vm, info) {
     if (err instanceof UIError) {
@@ -306,4 +344,6 @@ fetchConfig("config.json").then(async (config: any) => {
   // be allowed to fail.
   store.dispatch("switchLocale")
   store.dispatch("setupAfterLogin")
+
+  store.dispatch("initPushNotification")
 })
